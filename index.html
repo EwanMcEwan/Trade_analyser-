@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>trade_analyser</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>trade_analyser</h1>
+    <input type="text" id="symbolInput" placeholder="Search ticker e.g. NVDA">
+    <button onclick="loadChart()">Open Chart</button>
+  </header>
+
+  <nav class="nav">
+    <button onclick="showSection('heatmap')">Heatmap</button>
+    <button onclick="showSection('news')">News</button>
+    <button onclick="showSection('charts')">Charts</button>
+    <button onclick="showSection('earnings')">Earnings</button>
+  </nav>
+
+  <main>
+    <section id="heatmap" class="section active">
+      <h2>US Market Heatmap</h2>
+      <div class="widget">
+        <iframe src="https://s.tradingview.com/embed-widget/stock-heatmap/?locale=en#%7B%22dataSource%22%3A%22SPX500%22%2C%22blockSize%22%3A%22market_cap_basic%22%2C%22blockColor%22%3A%22change%22%2C%22grouping%22%3A%22sector%22%2C%22locale%22%3A%22en%22%7D"></iframe>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <h2>Market News</h2>
+      <div class="news-grid">
+        <iframe src="https://www.cnbc.com/world/?region=world"></iframe>
+        <iframe src="https://www.reuters.com/markets/"></iframe>
+      </div>
+    </section>
+
+    <section id="charts" class="section">
+      <h2>TradingView Chart</h2>
+      <div class="widget">
+        <iframe id="chartFrame" src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ:NVDA&interval=D&theme=dark"></iframe>
+      </div>
+    </section>
+
+    <section id="earnings" class="section">
+      <h2>Earnings Calendar</h2>
+      <div class="widget">
+        <iframe src="https://www.tradingview.com/markets/stocks-usa/earnings/"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
